@@ -1,0 +1,542 @@
+---
+layout: default
+---
+
+
+<div class="heading" id="toc">
+  <h2>Table of contents</h2>
+</div>
+<div class="section toc">
+  <div class="col">
+    <h4><a href="#html">HTML</a></h4>
+    <ul>
+      <li><a href="#html-syntax">Syntax</a></li>
+      <li><a href="#html-doctype">HTML5 doctype</a></li>
+      <li><a href="#html-lang">Language attribute</a></li>
+      <li><a href="#html-encoding">Character encoding</a></li>
+      <li><a href="#html-ie-compatibility-mode">Internet Explorer compatibility mode</a></li>
+      <li><a href="#html-style-script">CSS and JavaScript includes</a></li>
+      <li><a href="#html-practicality">Practicality over purity</a></li>
+      <li><a href="#html-attribute-order">Attribute order</a></li>
+      <li><a href="#html-boolean-attributes">Boolean attributes</a></li>
+      <li><a href="#html-reducing-markup">Reducing markup</a></li>
+      <li><a href="#html-javascript">JavaScript generated markup</a></li>
+      <!--<li><a href="#html-comments">Comments</a></li>-->
+    </ul>
+  </div>
+  <div class="col">
+    <h4><a href="#css">CSS</a></h4>
+    <ul>
+      <li><a href="#css-syntax">CSS syntax</a></li>
+      <li><a href="#css-declaration-order">Declaration order</a></li>
+      <li><a href="#css-single-declarations">Rules with single declarations</a></li>
+      <li><a href="#css-media-queries">Media query placement</a></li>
+      <li><a href="#css-prefixed-properties">Prefixed properties</a></li>
+      <li><a href="#css-shorthand">Shorthand notation</a></li>
+      <li><a href="#css-comments">Comments</a></li>
+      <li><a href="#css-classes">Classes</a></li>
+      <li><a href="#css-selectors">Selectors</a></li>
+      <li><a href="#css-organization">Organization</a></li>
+    </ul>
+  </div>
+  <div class="col">
+    <h4><a href="#js">JavaScript</a></h4>
+    <ul>
+      <li><a href="#js-syntax">JavaScript syntax</a></li>
+      <li><a href="js-naming-conventions">Naming Conventions</a></li>
+      <li><a href="#js-variables">Variables</a></li>
+      <li><a href="#js-conditionals">Conditionals</a></li>
+      <li><a href="#js-functions">Functions</a></li>
+      <li><a href="#js-comments">Comments</a></li>
+      <li><a href="#js-misc">Miscellaneous</a></li>
+      <li><a href="#js-jquery-syntax">jQuery syntax</a></li>
+      <li><a href="#js-selectors">Avoid using class or id selectors!</a></li>
+      <li><a href="#js-cache-selectors">Cache your selectors</a></li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="section" id="golden-rule">
+  <div class="col">
+    <h2>Golden rule</h2>
+    <p>Enforce these, or your own, agreed upon guidelines at all times. Small or large, call out what's incorrect.</p>
+  </div>
+  <div class="col">
+    <blockquote>
+      <p>Every line of code should appear to be written by a single person, no matter the number of contributors.</p>
+    </blockquote>
+  </div>
+</div>
+
+
+
+<div class="heading" id="html">
+  <h2>HTML <a href="#html"><i class="fa fa-link"></i></a></h2>
+</div>
+
+<div class="section" id="html-syntax">
+  <div class="col">
+    <h3>Syntax <a href="#html-syntax"><i class="fa fa-link"></i></a></h3>
+    <ul>
+      <li>Use hard tabs with four spaces.</li>
+      <li>Nested elements should be indented once (1 tab).</li>
+      <li>Always use double quotes, never single quotes, on attributes.</li>
+      <li>Don't include a trailing slash in self-closing elements—the <a href="http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag">HTML5 spec</a> says they're optional.</li>
+      <li>Don’t omit optional closing tags (e.g. <code>&lt;/li&gt;</code> or <code>&lt;/body&gt;</code>).</li>
+    </ul>
+  </div>
+  <div class="col">
+    {% highlight html %}{% include html/syntax.html %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="html-doctype">
+  <div class="col">
+    <h3>HTML5 doctype <a href="#html-doctype"><i class="fa fa-link"></i></a></h3>
+    <p>Enforce standards mode and more consistent rendering in every browser possible with this simple doctype at the beginning of every HTML page.</p>
+  </div>
+  <div class="col">
+    {% highlight html %}{% include html/doctype.html %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="html-lang">
+  <div class="col">
+    <h3>Language attribute <a href="#html-lang"><i class="fa fa-link"></i></a></h3>
+    <p>From the HTML5 spec:</p>
+    <blockquote>
+      <p>Authors are encouraged to specify a lang attribute on the root html element, giving the document's language. This aids speech synthesis tools to determine what pronunciations to use, translation tools to determine what rules to use, and so forth.</p>
+    </blockquote>
+    <p>Read more about the <code>lang</code> attribute <a href="http://www.w3.org/html/wg/drafts/html/master/semantics.html#the-html-element" target="_blank">in the spec</a>.</p>
+    <p>Head to Sitepoint for a <a href="http://reference.sitepoint.com/html/lang-codes" target="_blank">list of language codes</a>.</p>
+  </div>
+  <div class="col">
+    {% highlight html %}{% include html/lang.html %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="html-ie-compatibility-mode">
+  <div class="col">
+    <h3>IE compatibility mode <a href="#html-ie-compatibility-mode"><i class="fa fa-link"></i></a></h3>
+    <p>Internet Explorer supports the use of a document compatibility <code>&lt;meta&gt;</code> tag to specify what version of IE the page should be rendered as. Unless circumstances require otherwise, it's most useful to instruct IE to use the latest supported mode with <strong>edge mode</strong>.</p>
+    <p>For more information, <a href="http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge-e" target="_blank">read this awesome Stack Overflow article</a>.</p>
+  </div>
+  <div class="col">
+    {% highlight html %}{% include html/ie-compatibility-mode.html %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="html-encoding">
+  <div class="col">
+    <h3>Character encoding <a href="#html-encoding"><i class="fa fa-link"></i></a></h3>
+    <p>Quickly and easily ensure proper rendering of your content by declaring an explicit character encoding. When doing so, you may avoid using character entities in your HTML, provided their encoding matches that of the document (generally UTF-8).</p>
+  </div>
+  <div class="col">
+    {% highlight html %}{% include html/encoding.html %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="html-style-script">
+  <div class="col">
+    <h3>CSS and JavaScript includes <a href="#html-style-script"><i class="fa fa-link"></i></a></h3>
+    <p>Per HTML5 spec, typically there is no need to specify a <code>type</code> when including CSS and JavaScript files as <code>text/css</code> and <code>text/javascript</code> are their respective defaults.</p>
+    <h4>HTML5 spec links</h4>
+    <ul>
+      <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-link-element" target="_blank">Using link</a></li>
+      <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-style-element" target="_blank">Using style</a></li>
+      <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/scripting-1.html#the-script-element" target="_blank">Using script</a></li>
+    </ul>
+  </div>
+  <div class="col">
+    {% highlight html %}{% include html/style-script.html %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="html-practicality">
+  <div class="col">
+    <h3>Practicality over purity <a href="#html-practicality"><i class="fa fa-link"></i></a></h3>
+    <p>Strive to maintain HTML standards and semantics, but not at the expense of practicality. Use the least amount of markup with the fewest intricacies whenever possible.</p>
+  </div>
+</div>
+
+<div class="section" id="html-attribute-order">
+  <div class="col">
+    <h3>Attribute order <a href="#html-attribute-order"><i class="fa fa-link"></i></a></h3>
+    <p>HTML attributes should come in this general order for easier reading of code.</p>
+    <ul>
+      <li><code>class</code>, <code>id</code>, <code>name</code></li>
+      <li><code>src</code>, <code>for</code>, <code>type</code>, <code>href</code>, <code>value</code></li>
+      <li><code>title</code>, <code>alt</code></li>
+      <li><code>role</code>, <code>aria-*</code></li>
+      <li><code>data-*</code></li>
+    </ul>
+    <p>Classes make for great reusable components, so they come first. Ids are more specific and should be used sparingly (e.g., for in-page bookmarks), so they come second.</p>
+  </div>
+  <div class="col">
+    {% highlight html %}{% include html/attribute-order.html %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="html-boolean-attributes">
+  <div class="col">
+    <h3>Boolean attributes <a href="#html-boolean-attributes"><i class="fa fa-link"></i></a></h3>
+    <p>A boolean attribute is one that needs no declared value. XHTML required you to declare a value, but HTML5 has no such requirement.</p>
+    <p>For further reading, consult the <a href="https://html.spec.whatwg.org/multipage/infrastructure.html#boolean-attributes" target="_blank">WhatWG section on boolean attributes</a>:</p>
+    <blockquote>
+      <p>The presence of a boolean attribute on an element represents the true value, and the absence of the attribute represents the false value.</p>
+    </blockquote>
+    <p>If you <em>must</em> include the attribute's value, and <strong>you don't need to</strong>, follow this WhatWG guideline:</p>
+    <blockquote>
+      <p>If the attribute is present, its value must either be the empty string or [...] the attribute's canonical name, with no leading or trailing whitespace.</p>
+    </blockquote>
+    <p><strong>In short, don't add a value.</strong></p>
+  </div>
+  <div class="col">
+    {% highlight html %}{% include html/boolean-attributes.html %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="html-reducing-markup">
+  <div class="col">
+    <h3>Reducing markup <a href="#html-reducing-markup"><i class="fa fa-link"></i></a></h3>
+    <p>Whenever possible, avoid superfluous parent elements when writing HTML. Many times this requires iteration and refactoring, but produces less HTML. Take the following example:</p>
+  </div>
+  <div class="col">
+    {% highlight html %}{% include html/reducing-markup.html %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="html-javascript">
+  <div class="col">
+    <h3>JavaScript generated markup <a href="#html-javascript"><i class="fa fa-link"></i></a></h3>
+    <p>Writing markup in a JavaScript file makes the content harder to find, harder to edit, and less performant. Avoid it whenever possible.</p>
+  </div>
+</div>
+
+<!--<div class="section" id="html-comments">
+  <div class="col">
+    <h3>Comments <a href="#html-comments"><i class="fa fa-link"></i></a></h3>
+    <p></p>
+  </div>
+</div>-->
+
+
+
+<div class="heading" id="css">
+  <h2>CSS <a href="#css"><i class="fa fa-link"></i></a></h2>
+</div>
+
+<div class="section" id="css-syntax">
+  <div class="col">
+    <h3>Syntax <a href="#css-syntax"><i class="fa fa-link"></i></a></h3>
+    <ul>
+      <li>Use hard tabs with four spaces.</li>
+      <li>When grouping selectors, keep individual selectors to a single line.</li>
+      <li>Include one space before the opening brace of declaration blocks for legibility.</li>
+      <li>Place closing braces of declaration blocks on a new line.</li>
+      <li>Include one space after <code>:</code> for each declaration.</li>
+      <li>Each declaration should appear on its own line for more accurate error reporting.</li>
+      <li>End all declarations with a semi-colon. The last declaration's is optional, but your code is more error prone without it.</li>
+      <li>Comma-separated property values should include a space after each comma (e.g., <code>box-shadow</code>).</li>
+      <li>Always prefix property values or color parameters with a leading zero (e.g., <code>0.5</code> instead of <code>.5</code> and <code>-0.5px</code> instead of <code>-.5px</code>).</li>
+      <li>Lowercase all hex values, e.g., <code>#fff</code>. Lowercase letters are much easier to discern when scanning a document as they tend to have more unique shapes.</li>
+      <li>Use shorthand hex values where available, e.g., <code>#fff</code> instead of <code>#ffffff</code>.</li>
+      <li>Quote attribute values in selectors, e.g., <code>input[type="text"]</code>. <a href="http://mathiasbynens.be/notes/unquoted-attribute-values#css" target="_blank">They’re only optional in some cases</a>, and it’s a good practice for consistency.</li>
+      <li>Avoid specifying units for zero values, e.g., <code>margin: 0;</code> instead of <code>margin: 0px;</code>.</li>
+    </ul>
+    <p>Questions on the terms used here? See the <a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets#Syntax" target="_blank">syntax section of the Cascading Style Sheets article</a> on Wikipedia.</p>
+  </div>
+  <div class="col">
+    {% highlight css %}{% include css/syntax.css %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="css-declaration-order">
+  <div class="col">
+    <h3>Declaration order <a href="#css-declaration-order"><i class="fa fa-link"></i></a></h3>
+    <p>Related property declarations should be grouped together following the order:</p>
+    <ol>
+      <li>Positioning</li>
+      <li>Box model</li>
+      <li>Typographic</li>
+      <li>Visual</li>
+    </ol>
+    <p>Positioning comes first because it can remove an element from the normal flow of the document and override box model related styles. The box model comes next as it dictates a component's dimensions and placement.</p>
+    <p>Everything else takes place <em>inside</em> the component or without impacting the previous two sections, and thus they come last.</p>
+    <p>For a complete list of properties and their order, please see <a href="http://twitter.github.com/recess" target="_blank">Recess</a>.</p>
+  </div>
+  <div class="col">
+    {% highlight css %}{% include css/declaration-order.css %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="css-single-declarations">
+  <div class="col">
+    <h3>Single declarations <a href="#css-single-declarations"><i class="fa fa-link"></i></a></h3>
+    <p>In instances where a rule set includes <strong>only one declaration</strong>, consider removing line breaks for readability and faster editing. Any rule set with multiple declarations should be split to separate lines.</p>
+    <p>The key factor here is error detection—e.g., a CSS validator stating you have a syntax error on Line 183. With a single declaration, there's no missing it. With multiple declarations, separate lines is a must for your sanity.</p>
+  </div>
+  <div class="col">
+    {% highlight css %}{% include css/single-declarations.css %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="css-media-queries">
+  <div class="col">
+    <h3>Media query placement <a href="#css-media-queries"><i class="fa fa-link"></i></a></h3>
+    <p>Place media queries as close to their relevant rule sets whenever possible. Don't bundle them all in a separate stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future. Here's a typical setup.</p>
+  </div>
+  <div class="col">
+    {% highlight css %}{% include css/media-queries.css %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="css-prefixed-properties">
+  <div class="col">
+    <h3>Prefixed properties <a href="#css-prefixed-properties"><i class="fa fa-link"></i></a></h3>
+    <p>When using vendor prefixed properties, indent each property such that the declaration's value lines up vertically for easy multi-line editing.</p>
+    <p>In Sublime Text 2, use <strong>Selection &rarr; Add Previous Line</strong> (ctrl + alt + &uarr;) and <strong>Selection &rarr;  Add Next Line</strong> (ctrl + alt + &darr;). In Atom, user <strong>Selections &rarr; Add Selection Above</strong> (alt + ctrl + &uarr;) and <strong>Selection &rarr; Add Selection Below</strong> (alt + ctrl + &darr;).</p>
+  </div>
+  <div class="col">
+    {% highlight css %}{% include css/prefixed-properties.css %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="css-shorthand">
+  <div class="col">
+    <h3>Shorthand notation <a href="#css-shorthand"><i class="fa fa-link"></i></a></h3>
+    <p>Strive to limit use of shorthand declarations to instances where you must explicitly set all the available values. Common overused shorthand properties include:</p>
+    <ul>
+      <li><code>padding</code></li>
+      <li><code>margin</code></li>
+      <li><code>font</code></li>
+      <li><code>background</code></li>
+      <li><code>border</code></li>
+      <li><code>border-radius</code></li>
+    </ul>
+    <p>Often times we don't need to set all the values a shorthand property represents. For example, HTML headings only set top and bottom margin, so when necessary, only override those two values. Excessive use of shorthand properties often leads to sloppier code with unnecessary overrides and unintended side effects.</p>
+    <p>The Mozilla Developer Network has a great article on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties" target="_blank">shorthand properties</a> for those unfamiliar with notation and behavior.</p>
+  </div>
+  <div class="col">
+    {% highlight css %}{% include css/shorthand.css %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="css-comments">
+  <div class="col">
+    <h3>Comments <a href="#css-comments"><i class="fa fa-link"></i></a></h3>
+    <p>Code is written and maintained by people. Ensure your code is descriptive, well commented, and approachable by others. Great code comments convey context or purpose. Do not simply reiterate a component or class name.</p>
+    <p>Be sure to write in complete sentences for larger comments and succinct phrases for general notes.</p>
+  </div>
+  <div class="col">
+    {% highlight css %}{% include css/comments.css %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="css-classes">
+  <div class="col">
+    <h3>Class names <a href="#css-classes"><i class="fa fa-link"></i></a></h3>
+    <ul>
+      <li>Keep classes lowercase and use dashes (not underscores or camelCase). Dashes serve as natural breaks in related class (e.g., <code>.btn</code> and <code>.btn-danger</code>).</li>
+      <li>Avoid excessive and arbitrary shorthand notation. <code>.btn</code> is useful for <em>button</em>, but <code>.s</code> doesn't mean anything.</li>
+      <li>Keep classes as short and succinct as possible.</li>
+      <li>Use meaningful names; use structural or purposeful names over presentational.</li>
+      <li>Prefix classes based on the closest parent or base class.</li>
+    </ul>
+    <p>It's also useful to apply many of these same rules when creating Sass and Less variable names.</p>
+  </div>
+  <div class="col">
+    {% highlight css %}{% include css/class-names.css %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="css-selectors">
+  <div class="col">
+    <h3>Selectors <a href="#css-selectors"><i class="fa fa-link"></i></a></h3>
+    <ul>
+      <li>Use classes over generic element tag for optimum rendering performance.</li>
+      <li>Avoid using several attribute selectors (e.g., <code>[class^="..."]</code>) on commonly occuring components. Browser performance is known to be impacted by these.</li>
+      <li>Keep selectors short and strive to limit the number of elements in each selector to three.</li>
+      <li>Scope classes to the closest parent <strong>only</strong> when necessary (e.g., when not using prefixed classes).</li>
+    </ul>
+    <p>Additional reading:</p>
+    <ul>
+      <li><a href="http://markdotto.com/2012/02/16/scope-css-classes-with-prefixes/" target="_blank">Scope CSS classes with prefixes</a></li>
+      <li><a href="http://markdotto.com/2012/03/02/stop-the-cascade/" target="_blank">Stop the cascade</a></li>
+    </ul>
+  </div>
+  <div class="col">
+    {% highlight css %}{% include css/selectors.css %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="css-organization">
+  <div class="col">
+    <h3>Organization <a href="#css-organization"><i class="fa fa-link"></i></a></h3>
+    <ul>
+      <li>Organize sections of code by component.</li>
+      <li>Develop a consistent commenting hierarchy.</li>
+      <li>Use consistent white space to your advantage when separating sections of code for scanning larger documents.</li>
+      <li>When using multiple CSS files, break them down by component instead of page. Pages can be rearranged and components moved.</li>
+    </ul>
+  </div>
+  <div class="col">
+    {% highlight css %}{% include css/organization-comments.css %}{% endhighlight %}
+  </div>
+</div>
+
+
+
+<div class="heading" id="js">
+  <h2>JavaScript <a href="#js"><i class="fa fa-link"></i></a></h2>
+</div>
+
+<div class="section" id="js-syntax">
+  <div class="col">
+    <h3>Syntax <a href="#js-syntax"><i class="fa fa-link"></i></a></h3>
+    <ul>
+      <li>Use hard tabs with four spaces.</li>
+      <li>Remove all trailing white space.</li>
+      <li>Always end you statements with a semicolon.</li>
+      <li>Your opening braces go on the same line as the statement.</li>
+      <li>Else opening should be on the same line as the if closing brace.</li>
+      <li>If statements can be single line if they have a single return.</li>
+      <li>Declare one variable per var statement, it makes it easier to re-order the lines. However, ignore <a href="http://javascript.crockford.com/code.html" target="_blank">Crockford</a> when it comes to declaring variables deeper inside a function, just put the declarations wherever they make sense.</li>
+    </ul>
+  </div>
+  <div class="col">
+    {% highlight js %}{% include js/syntax.js %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="js-naming-conventions">
+  <div class="col">
+    <h3>Naming Conventions <a href="#js-naming-conventions"><i class="fa fa-link"></i></a></h3>
+    <ul>
+      <li>Variables, properties and function names should use <code>lowerCamelCase</code>. They should also be descriptive. Single character variables and uncommon abbreviations should generally be avoided.</li>
+      <li>Class names should be capitalized using <code>UpperCamelCase</code>.</li>
+      <li>Constants should be declared as regular variables or static class properties, using all uppercase letters.</li>
+    </ul>
+  </div>
+  <div class="col">
+    {% highlight js %}{% include js/naming-conventions.js %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="js-variables">
+  <div class="col">
+    <h3>Variables <a href="#js-variables"><i class="fa fa-link"></i></a></h3>
+    <p>Put short declarations on a single line. Only quote keys when your interpreter complains.</p>
+  </div>
+  <div class="col">
+    {% highlight js %}{% include js/variables.js %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="js-conditionals">
+  <div class="col">
+    <h3>Conditionals <a href="#js-conditionals"><i class="fa fa-link"></i></a></h3>
+    <h4>Use the === operator</h4>
+    <p>Use the triple equality operator as it will work just as expected.</p>
+    <br>
+    <h4>Use descriptive conditions</h4>
+    <p>Any non-trivial conditions should be assigned to a descriptively named variable or function.</p>
+  </div>
+  <div class="col">
+    {% highlight js %}{% include js/conditionals.js %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="js-functions">
+  <div class="col">
+    <h3>Functions <a href="#js-functions"><i class="fa fa-link"></i></a></h3>
+    <h4>Write small functions</h4>
+    <p>Keep your functions short. A good function fits on a slide that the people in the last row of a big room can comfortably read. So don't count on them having perfect vision and limit yourself to ~15 lines of code per function.</p>
+    <br>
+    <h4>Return early from functions</h4>
+    <p>To avoid deep nesting of if-statements, always return a function's value as early as possible.</p>
+    <br>
+    <br>
+    <h4>Limit nested closures</h4>
+    <p>There will always be times when you'll need to nest your closures, but limit the depth to ~3 deep otherwise your code can become unreadable and hard to maintain.</p>
+    <br>
+    <h4>Method chaining</h4>
+    <p>One method per line should be used if you want to chain methods.<p>
+    <p>You should also indent these methods so it's easier to tell they are part of the same chain.</p>
+  </div>
+  <div class="col">
+    {% highlight js %}{% include js/functions.js %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="js-comments">
+  <div class="col">
+    <h3>Comments <a href="#js-comments"><i class="fa fa-link"></i></a></h3>
+    <p>Try to write comments that explain higher level mechanisms or clarify difficult segments of your code. Don't use comments to restate trivial things.</p>
+  </div>
+  <div class="col">
+    {% highlight js %}{% include js/comments.js %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="js-misc">
+  <div class="col">
+    <h3>Miscellaneous <a href="#js-misc"><i class="fa fa-link"></i></a></h3>
+    <h4>Object.freeze, Object.preventExtensions, Object.seal, with, eval</h4>
+    <p>Crazy shit that you will probably never need. Stay away from it.</p>
+    <br>
+    <h4>Requires At Top</h4>
+    <p>Always put requires at top of file to clearly illustrate a file's dependencies. Besides giving an overview for others at a quick glance of dependencies and possible memory impact, it allows one to determine if they need a package.json file should they choose to use the file elsewhere.</p>
+    <br>
+    <h4>Do not extend built-in prototypes</h4>
+    <p>Do not extend the prototype of native JavaScript objects. Your future self will be forever grateful.</p>
+  </div>
+  <div class="col">
+    {% highlight js %}{% include js/misc.js %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="js-jquery-syntax">
+  <div class="col">
+    <h3>jQuery syntax <a href="#js-jquery-syntax"><i class="fa fa-link"></i></a></h3>
+    <p>Always define a root node for every widget based off of the <code>{{guid}}</code>. This allows us to limit the size of the node tree when use functions like <code>.find()</code> which will improve performance. This will also help restrict any interactions, functions and listeners you define to the specific instance of the widget. Otherwise, other widgets or multiples of the same widget may trigger your code to run.</p>
+  </div>
+  <div class="col">
+    {% highlight html %}{% include js/jquery-syntax.html %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="js-selectors">
+  <div class="col">
+    <h3>Avoid using class or id selectors <a href="#js-selectors"><i class="fa fa-link"></i></a></h3>
+    <p>This helps keep a strict separation between structure and functionality. With this, an element can be completely restyled with an entire new set of classes and ids without any loss of functionality.</p>
+  </div>
+  <div class="col">
+    {% highlight html %}{% include js/selectors.html %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="js-cache-selectors">
+  <div class="col">
+    <h3>Cache your selectors <a href="#js-cache-selectors"><i class="fa fa-link"></i></a></h3>
+    <p>If you’re going to use a selector more than once, you should store it in a variable. Not only does it make the code easier to read, but it also improves performance since jQuery no longer has to traverse the DOM to find matching nodes.</p>
+  </div>
+  <div class="col">
+    {% highlight js %}{% include js/cache-selectors.js %}{% endhighlight %}
+  </div>
+</div>
+
+<div class="section" id="css-editor-prefs">
+  <div class="col">
+    <h3>Editor preferences</h3>
+    <p>Set your editor to the following settings to avoid common code inconsistencies and dirty diffs:</p>
+    <ul>
+      <li>Use hard-tabs set to four spaces.</li>
+      <li>Trim trailing white space on save.</li>
+      <li>Set encoding to UTF-8.</li>
+      <li>Add new line at end of files.</li>
+    </ul>
+    <p>Consider documenting and applying these preferences to your project's <code>.editorconfig</code> file. You can use <a href="https://github.com/arkmuntasser/code-guide/blob/gh-pages/.editorconfig">the one in this Code Guide</a>. Learn more <a href="http://editorconfig.org" target="_blank">about EditorConfig</a>. Get it for <a href="https://github.com/sindresorhus/editorconfig-sublime" target="_blank">Sublime Text</a> or <a href="https://atom.io/packages/editorconfig" target="_blank">Atom</a></p>
+  </div>
+</div>
