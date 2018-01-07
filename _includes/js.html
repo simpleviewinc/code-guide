@@ -1,1 +1,21 @@
 <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+<script>
+  var menuBtn = document.querySelector('header button');
+
+  menuBtn.addEventListener('click', toggleMenu);
+
+  function toggleMenu() {
+    document.querySelector('body').classList.toggle('menu-toggled');
+  }
+
+  var aside = document.querySelector('aside');
+
+  aside.addEventListener('click', checkAside);
+
+  function checkAside(e) {
+    if (e.target !== aside) { return; }
+
+    toggleMenu();
+  }
+</script>

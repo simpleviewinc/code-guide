@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link href="public/ico/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+    <title>
+      SV Code Guide
+    </title>
+
+    <link rel="stylesheet" href="code-guide.css">
+    <!-- <link rel="stylesheet" href="font-awesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|Source+Code+Pro:400"> -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800|Source+Code+Pro:400" rel="stylesheet">
+  </head>
+  <body class="menu-toggled">
+
+    <aside class="sidebar">
+  <nav>
+    <div class="section-title">
+      <a href="#html"><i class="fab fa-html5"></i> HTML</a>
+    </div>
+    <ul>
+      <li><a href="#html-syntax">Syntax</a></li>
+      <li><a href="#html-doctype">HTML5 doctype</a></li>
+      <li><a href="#html-lang">Language attribute</a></li>
+      <li><a href="#html-encoding">Character encoding</a></li>
+      <li><a href="#html-ie-compatibility-mode">Internet Explorer compatibility mode</a></li>
+      <li><a href="#html-style-script">CSS and JavaScript includes</a></li>
+      <li><a href="#html-practicality">Practicality over purity</a></li>
+      <li><a href="#html-attribute-order">Attribute order</a></li>
+      <li><a href="#html-boolean-attributes">Boolean attributes</a></li>
+      <li><a href="#html-reducing-markup">Reducing markup</a></li>
+      <li><a href="#html-javascript">JavaScript generated markup</a></li>
+    </ul>
+
+    <div class="section-title">
+      <a href="#css"><i class="fab fa-css3"></i> CSS</a>
+    </div>
+    <ul>
+      <li><a href="#css-syntax">Syntax</a></li>
+      <li><a href="#css-declaration-order">Declaration order</a></li>
+      <li><a href="#css-single-declarations">Rules with single declarations</a></li>
+      <li><a href="#css-media-queries">Media query placement</a></li>
+      <li><a href="#css-prefixed-properties">Prefixed properties</a></li>
+      <li><a href="#css-shorthand">Shorthand notation</a></li>
+      <li><a href="#css-comments">Comments</a></li>
+      <li><a href="#css-classes">Classes</a></li>
+      <li><a href="#css-selectors">Selectors</a></li>
+      <li><a href="#css-organization">Organization</a></li>
+    </ul>
+
+    <div class="section-title">
+      <a href="#js"><i class="fab fa-js"></i> JavaScript</a>
+    </div>
+    <ul>
+      <li><a href="#js-syntax">Syntax</a></li>
+      <li><a href="js-naming-conventions">Naming Conventions</a></li>
+      <li><a href="#js-variables">Variables</a></li>
+      <li><a href="#js-conditionals">Conditionals</a></li>
+      <li><a href="#js-functions">Functions</a></li>
+      <li><a href="#js-comments">Comments</a></li>
+      <li><a href="#js-misc">Miscellaneous</a></li>
+      <li><a href="#js-jquery-syntax">jQuery syntax</a></li>
+      <li><a href="#js-selectors">Avoid using class or id selectors!</a></li>
+      <li><a href="#js-cache-selectors">Cache your selectors</a></li>
+    </ul>
+  </nav>
+</aside>
+
+<main>
+  <header>
+    <button>Menu</button>
+    <img src="logo-alt.svg"alt="Simpleview" /> Code Guide
+  </header>
+
+  <div class="masthead">
+  <div class="container">
+    <h1>SV Code Guide</h1>
+    <p class="lead">Standards for developing flexible, durable, and sustainable HTML, CSS and JavaScript.</p>
+  </div>
+</div>
+
+
+  <div class="section" id="golden-rule">
+    <div class="col">
+      <h2>Golden rule</h2>
+      <p>Enforce these, or your own, agreed upon guidelines at all times. Small or large, call out what's incorrect.</p>
+    </div>
+    <div class="col">
+      <blockquote>
+        <p>Every line of code should appear to be written by a single person, no matter the number of contributors.</p>
+      </blockquote>
+    </div>
+  </div>
+
+  <div class="heading" id="html">
+    <h2>HTML <a href="#html"><i class="fa fa-link"></i></a></h2>
+  </div>
+
+  <div class="section" id="html-syntax">
+    <div class="col">
+      <h3>Syntax <a href="#html-syntax"><i class="fa fa-link"></i></a></h3>
+      <ul>
+        <li>Use hard tabs with four spaces.</li>
+        <li>Nested elements should be indented once (1 tab).</li>
+        <li>Always use double quotes, never single quotes, on attributes.</li>
+        <li>Don't include a trailing slash in self-closing elements—the <a href="http://dev.w3.org/html5/spec-author-view/syntax.html#syntax-start-tag">HTML5 spec</a> says they're optional.</li>
+        <li>Don’t omit optional closing tags (e.g. <code>&lt;/li&gt;</code> or <code>&lt;/body&gt;</code>).</li>
+      </ul>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;html&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;head&gt;</span><br data-jekyll-commonmark-ghpages>        <span class="nt">&lt;title&gt;</span>Page title<span class="nt">&lt;/title&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;/head&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;body&gt;</span><br data-jekyll-commonmark-ghpages>        <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"images/company-logo.png"</span> <span class="na">alt=</span><span class="s">"Company"</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages>        <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"hello-world"</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/h1&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;/body&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;/html&gt;</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="html-doctype">
+    <div class="col">
+      <h3>HTML5 doctype <a href="#html-doctype"><i class="fa fa-link"></i></a></h3>
+      <p>Enforce standards mode and more consistent rendering in every browser possible with this simple doctype at the beginning of every HTML page.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;html&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;head&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;/head&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;/html&gt;</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="html-lang">
+    <div class="col">
+      <h3>Language attribute <a href="#html-lang"><i class="fa fa-link"></i></a></h3>
+      <p>From the HTML5 spec:</p>
+      <blockquote>
+        <p>Authors are encouraged to specify a lang attribute on the root html element, giving the document's language. This aids speech synthesis tools to determine what pronunciations to use, translation tools to determine what rules to use, and so forth.</p>
+      </blockquote>
+      <p>Read more about the <code>lang</code> attribute <a href="http://www.w3.org/html/wg/drafts/html/master/semantics.html#the-html-element" target="_blank">in the spec</a>.</p>
+      <p>Head to Sitepoint for a <a href="http://reference.sitepoint.com/html/lang-codes" target="_blank">list of language codes</a>.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en-us"</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="c">&lt;!-- ... --&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;/html&gt;</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="html-ie-compatibility-mode">
+    <div class="col">
+      <h3>IE compatibility mode <a href="#html-ie-compatibility-mode"><i class="fa fa-link"></i></a></h3>
+      <p>Internet Explorer supports the use of a document compatibility <code>&lt;meta&gt;</code> tag to specify what version of IE the page should be rendered as. Unless circumstances require otherwise, it's most useful to instruct IE to use the latest supported mode with <strong>edge mode</strong>.</p>
+      <p>For more information, <a href="http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge-e" target="_blank">read this awesome Stack Overflow article</a>.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=Edge"</span><span class="nt">&gt;</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="html-encoding">
+    <div class="col">
+      <h3>Character encoding <a href="#html-encoding"><i class="fa fa-link"></i></a></h3>
+      <p>Quickly and easily ensure proper rendering of your content by declaring an explicit character encoding. When doing so, you may avoid using character entities in your HTML, provided their encoding matches that of the document (generally UTF-8).</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;head&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;/head&gt;</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="html-style-script">
+    <div class="col">
+      <h3>CSS and JavaScript includes <a href="#html-style-script"><i class="fa fa-link"></i></a></h3>
+      <p>Per HTML5 spec, typically there is no need to specify a <code>type</code> when including CSS and JavaScript files as <code>text/css</code> and <code>text/javascript</code> are their respective defaults.</p>
+      <h4>HTML5 spec links</h4>
+      <ul>
+        <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-link-element" target="_blank">Using link</a></li>
+        <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/semantics.html#the-style-element" target="_blank">Using style</a></li>
+        <li><a href="http://www.w3.org/TR/2011/WD-html5-20110525/scripting-1.html#the-script-element" target="_blank">Using script</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- External CSS --&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"code-guide.css"</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c">&lt;!-- In-document CSS --&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;style&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="c">/* ... */</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;/style&gt;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c">&lt;!-- JavaScript --&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"code-guide.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="html-practicality">
+    <div class="col">
+      <h3>Practicality over purity <a href="#html-practicality"><i class="fa fa-link"></i></a></h3>
+      <p>Strive to maintain HTML standards and semantics, but not at the expense of practicality. Use the least amount of markup with the fewest intricacies whenever possible.</p>
+    </div>
+  </div>
+
+  <div class="section" id="html-attribute-order">
+    <div class="col">
+      <h3>Attribute order <a href="#html-attribute-order"><i class="fa fa-link"></i></a></h3>
+      <p>HTML attributes should come in this general order for easier reading of code.</p>
+      <ul>
+        <li><code>class</code>, <code>id</code>, <code>name</code></li>
+        <li><code>src</code>, <code>for</code>, <code>type</code>, <code>href</code>, <code>value</code></li>
+        <li><code>title</code>, <code>alt</code></li>
+        <li><code>role</code>, <code>aria-*</code></li>
+        <li><code>data-*</code></li>
+      </ul>
+      <p>Classes make for great reusable components, so they come first. Ids are more specific and should be used sparingly (e.g., for in-page bookmarks), so they come second.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"..."</span> <span class="na">id=</span><span class="s">"..."</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-toggle=</span><span class="s">"modal"</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages>    Example link<br data-jekyll-commonmark-ghpages><span class="nt">&lt;/a&gt;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span> <span class="na">alt=</span><span class="s">"..."</span><span class="nt">&gt;</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="html-boolean-attributes">
+    <div class="col">
+      <h3>Boolean attributes <a href="#html-boolean-attributes"><i class="fa fa-link"></i></a></h3>
+      <p>A boolean attribute is one that needs no declared value. XHTML required you to declare a value, but HTML5 has no such requirement.</p>
+      <p>For further reading, consult the <a href="https://html.spec.whatwg.org/multipage/infrastructure.html#boolean-attributes" target="_blank">WhatWG section on boolean attributes</a>:</p>
+      <blockquote>
+        <p>The presence of a boolean attribute on an element represents the true value, and the absence of the attribute represents the false value.</p>
+      </blockquote>
+      <p>If you <em>must</em> include the attribute's value, and <strong>you don't need to</strong>, follow this WhatWG guideline:</p>
+      <blockquote>
+        <p>If the attribute is present, its value must either be the empty string or [...] the attribute's canonical name, with no leading or trailing whitespace.</p>
+      </blockquote>
+      <p><strong>In short, don't add a value.</strong></p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">disabled</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">"1"</span> <span class="na">checked</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="nt">&lt;select&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"1"</span> <span class="na">selected</span><span class="nt">&gt;</span>1<span class="nt">&lt;/option&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;/select&gt;</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="html-reducing-markup">
+    <div class="col">
+      <h3>Reducing markup <a href="#html-reducing-markup"><i class="fa fa-link"></i></a></h3>
+      <p>Whenever possible, avoid superfluous parent elements when writing HTML. Many times this requires iteration and refactoring, but produces less HTML. Take the following example:</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Not so great --&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"avatar"</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"..."</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;/span&gt;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c">&lt;!-- Better --&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"avatar"</span> <span class="na">src=</span><span class="s">"..."</span><span class="nt">&gt;</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="html-javascript">
+    <div class="col">
+      <h3>JavaScript generated markup <a href="#html-javascript"><i class="fa fa-link"></i></a></h3>
+      <p>Writing markup in a JavaScript file makes the content harder to find, harder to edit, and less performant. Avoid it whenever possible.</p>
+    </div>
+  </div>
+
+  <div class="heading" id="css">
+    <h2>CSS <a href="#css"><i class="fa fa-link"></i></a></h2>
+  </div>
+
+  <div class="section" id="css-syntax">
+    <div class="col">
+      <h3>Syntax <a href="#css-syntax"><i class="fa fa-link"></i></a></h3>
+      <ul>
+        <li>Use hard tabs with four spaces.</li>
+        <li>When grouping selectors, keep individual selectors to a single line.</li>
+        <li>Include one space before the opening brace of declaration blocks for legibility.</li>
+        <li>Place closing braces of declaration blocks on a new line.</li>
+        <li>Include one space after <code>:</code> for each declaration.</li>
+        <li>Each declaration should appear on its own line for more accurate error reporting.</li>
+        <li>End all declarations with a semi-colon. The last declaration's is optional, but your code is more error prone without it.</li>
+        <li>Comma-separated property values should include a space after each comma (e.g., <code>box-shadow</code>).</li>
+        <li>Always prefix property values or color parameters with a leading zero (e.g., <code>0.5</code> instead of <code>.5</code> and <code>-0.5px</code> instead of <code>-.5px</code>).</li>
+        <li>Lowercase all hex values, e.g., <code>#fff</code>. Lowercase letters are much easier to discern when scanning a document as they tend to have more unique shapes.</li>
+        <li>Use shorthand hex values where available, e.g., <code>#fff</code> instead of <code>#ffffff</code>.</li>
+        <li>Quote attribute values in selectors, e.g., <code>input[type="text"]</code>. <a href="http://mathiasbynens.be/notes/unquoted-attribute-values#css" target="_blank">They’re only optional in some cases</a>, and it’s a good practice for consistency.</li>
+        <li>Avoid specifying units for zero values, e.g., <code>margin: 0;</code> instead of <code>margin: 0px;</code>.</li>
+      </ul>
+      <p>Questions on the terms used here? See the <a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets#Syntax" target="_blank">syntax section of the Cascading Style Sheets article</a> on Wikipedia.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* Bad CSS */</span><br data-jekyll-commonmark-ghpages><span class="nc">.selector</span><span class="o">,</span> <span class="nc">.selector-secondary</span><span class="o">,</span> <span class="nc">.selector</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">text</span><span class="o">]</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nl">padding</span><span class="p">:</span><span class="m">15px</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">margin</span><span class="p">:</span><span class="m">0px</span> <span class="m">0px</span> <span class="m">15px</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">background-color</span><span class="p">:</span><span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">.5</span><span class="p">);</span><br data-jekyll-commonmark-ghpages>    <span class="nl">box-shadow</span><span class="p">:</span><span class="m">0px</span> <span class="m">1px</span> <span class="m">2px</span> <span class="m">#CCC</span><span class="p">,</span><span class="nb">inset</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">0</span> <span class="m">#FFFFFF</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c">/* Good CSS */</span><br data-jekyll-commonmark-ghpages><span class="nc">.selector</span><span class="o">,</span><br data-jekyll-commonmark-ghpages><span class="nc">.selector-secondary</span><span class="o">,</span><br data-jekyll-commonmark-ghpages><span class="nc">.selector</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="s1">"text"</span><span class="o">]</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nl">padding</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">background-color</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.5</span><span class="p">);</span><br data-jekyll-commonmark-ghpages>    <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">2px</span> <span class="m">#ccc</span><span class="p">,</span> <span class="nb">inset</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">0</span> <span class="m">#fff</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><span class="p">}</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="css-declaration-order">
+    <div class="col">
+      <h3>Declaration order <a href="#css-declaration-order"><i class="fa fa-link"></i></a></h3>
+      <p>Related property declarations should be grouped together following the order:</p>
+      <ol>
+        <li>Positioning</li>
+        <li>Box model</li>
+        <li>Typographic</li>
+        <li>Visual</li>
+      </ol>
+      <p>Positioning comes first because it can remove an element from the normal flow of the document and override box model related styles. The box model comes next as it dictates a component's dimensions and placement.</p>
+      <p>Everything else takes place <em>inside</em> the component or without impacting the previous two sections, and thus they come last.</p>
+      <p>For a complete list of properties and their order, please see <a href="http://twitter.github.com/recess" target="_blank">Recess</a>.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.declaration-order</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="c">/* Positioning */</span><br data-jekyll-commonmark-ghpages>    <span class="nl">position</span><span class="p">:</span> <span class="nb">absolute</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">top</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">right</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">bottom</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">left</span><span class="p">:</span> <span class="m">0</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">z-index</span><span class="p">:</span> <span class="m">100</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages>    <span class="c">/* Box-model */</span><br data-jekyll-commonmark-ghpages>    <span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">float</span><span class="p">:</span> <span class="nb">right</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">height</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages>    <span class="c">/* Typography */</span><br data-jekyll-commonmark-ghpages>    <span class="nl">font</span><span class="p">:</span> <span class="nb">normal</span> <span class="m">13px</span> <span class="s1">"Helvetica Neue"</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">line-height</span><span class="p">:</span> <span class="m">1.5</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">color</span><span class="p">:</span> <span class="m">#333</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages>    <span class="c">/* Visual */</span><br data-jekyll-commonmark-ghpages>    <span class="nl">background-color</span><span class="p">:</span> <span class="m">#f5f5f5</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#e5e5e5</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages>    <span class="c">/* Misc */</span><br data-jekyll-commonmark-ghpages>    <span class="nl">opacity</span><span class="p">:</span> <span class="m">1</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><span class="p">}</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="css-single-declarations">
+    <div class="col">
+      <h3>Single declarations <a href="#css-single-declarations"><i class="fa fa-link"></i></a></h3>
+      <p>In instances where a rule set includes <strong>only one declaration</strong>, consider removing line breaks for readability and faster editing. Any rule set with multiple declarations should be split to separate lines.</p>
+      <p>The key factor here is error detection—e.g., a CSS validator stating you have a syntax error on Line 183. With a single declaration, there's no missing it. With multiple declarations, separate lines is a must for your sanity.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* Single declarations on one line */</span><br data-jekyll-commonmark-ghpages><span class="nc">.span1</span> <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="m">60px</span><span class="p">;</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nc">.span2</span> <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="m">140px</span><span class="p">;</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nc">.span3</span> <span class="p">{</span> <span class="nl">width</span><span class="p">:</span> <span class="m">220px</span><span class="p">;</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c">/* Multiple declarations, one per line */</span><br data-jekyll-commonmark-ghpages><span class="nc">.sprite</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">width</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">height</span><span class="p">:</span> <span class="m">15px</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url(../img/sprite.png)</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nc">.icon</span>           <span class="p">{</span> <span class="nl">background-position</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nc">.icon-home</span>      <span class="p">{</span> <span class="nl">background-position</span><span class="p">:</span> <span class="m">0</span> <span class="m">-20px</span><span class="p">;</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nc">.icon-account</span>   <span class="p">{</span> <span class="nl">background-position</span><span class="p">:</span> <span class="m">0</span> <span class="m">-40px</span><span class="p">;</span> <span class="p">}</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="css-media-queries">
+    <div class="col">
+      <h3>Media query placement <a href="#css-media-queries"><i class="fa fa-link"></i></a></h3>
+      <p>Place media queries as close to their relevant rule sets whenever possible. Don't bundle them all in a separate stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future. Here's a typical setup.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.element</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nc">.element-avatar</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nc">.element-selected</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">480px</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nc">.element</span> <span class="p">{</span> <span class="err">...</span><span class="p">}</span><br data-jekyll-commonmark-ghpages>    <span class="nc">.element-avatar</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages>    <span class="nc">.element-selected</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="p">}</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="css-prefixed-properties">
+    <div class="col">
+      <h3>Prefixed properties <a href="#css-prefixed-properties"><i class="fa fa-link"></i></a></h3>
+      <p>When using vendor prefixed properties, indent each property such that the declaration's value lines up vertically for easy multi-line editing.</p>
+      <p>In Sublime Text 2, use <strong>Selection &rarr; Add Previous Line</strong> (ctrl + alt + &uarr;) and <strong>Selection &rarr;  Add Next Line</strong> (ctrl + alt + &darr;). In Atom, user <strong>Selections &rarr; Add Selection Above</strong> (alt + ctrl + &uarr;) and <strong>Selection &rarr; Add Selection Below</strong> (alt + ctrl + &darr;).</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* Prefixed properties */</span><br data-jekyll-commonmark-ghpages><span class="nc">.selector</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nl">-webkit-box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">2px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.15</span><span class="p">);</span><br data-jekyll-commonmark-ghpages>            <span class="nl">box-shadow</span><span class="p">:</span> <span class="m">0</span> <span class="m">1px</span> <span class="m">2px</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0.15</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><span class="p">}</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="css-shorthand">
+    <div class="col">
+      <h3>Shorthand notation <a href="#css-shorthand"><i class="fa fa-link"></i></a></h3>
+      <p>Strive to limit use of shorthand declarations to instances where you must explicitly set all the available values. Common overused shorthand properties include:</p>
+      <ul>
+        <li><code>padding</code></li>
+        <li><code>margin</code></li>
+        <li><code>font</code></li>
+        <li><code>background</code></li>
+        <li><code>border</code></li>
+        <li><code>border-radius</code></li>
+      </ul>
+      <p>Often times we don't need to set all the values a shorthand property represents. For example, HTML headings only set top and bottom margin, so when necessary, only override those two values. Excessive use of shorthand properties often leads to sloppier code with unnecessary overrides and unintended side effects.</p>
+      <p>The Mozilla Developer Network has a great article on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties" target="_blank">shorthand properties</a> for those unfamiliar with notation and behavior.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* Bad example */</span><br data-jekyll-commonmark-ghpages><span class="nc">.element</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">background</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">background</span><span class="p">:</span> <span class="sx">url("image.jpg")</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">3px</span> <span class="m">3px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c">/* Good example */</span><br data-jekyll-commonmark-ghpages><span class="nc">.element</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">background-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">background-image</span><span class="p">:</span> <span class="sx">url("image.jpg")</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">border-top-left-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="nl">border-top-right-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><span class="p">}</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="css-comments">
+    <div class="col">
+      <h3>Comments <a href="#css-comments"><i class="fa fa-link"></i></a></h3>
+      <p>Code is written and maintained by people. Ensure your code is descriptive, well commented, and approachable by others. Great code comments convey context or purpose. Do not simply reiterate a component or class name.</p>
+      <p>Be sure to write in complete sentences for larger comments and succinct phrases for general notes.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* Bad example */</span><br data-jekyll-commonmark-ghpages><span class="c">/* Modal header */</span><br data-jekyll-commonmark-ghpages><span class="nc">.modal-header</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="err">...</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c">/* Good example */</span><br data-jekyll-commonmark-ghpages><span class="c">/* Wrapping element for .modal-title and .modal-close */</span><br data-jekyll-commonmark-ghpages><span class="nc">.modal-header</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="err">...</span><br data-jekyll-commonmark-ghpages><span class="p">}</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="css-classes">
+    <div class="col">
+      <h3>Class names <a href="#css-classes"><i class="fa fa-link"></i></a></h3>
+      <ul>
+        <li>Keep classes lowercase and use dashes (not underscores or camelCase). Dashes serve as natural breaks in related class (e.g., <code>.btn</code> and <code>.btn-danger</code>).</li>
+        <li>Avoid excessive and arbitrary shorthand notation. <code>.btn</code> is useful for <em>button</em>, but <code>.s</code> doesn't mean anything.</li>
+        <li>Keep classes as short and succinct as possible.</li>
+        <li>Use meaningful names; use structural or purposeful names over presentational.</li>
+        <li>Prefix classes based on the closest parent or base class.</li>
+      </ul>
+      <p>It's also useful to apply many of these same rules when creating Sass and Less variable names.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* Bad example */</span><br data-jekyll-commonmark-ghpages><span class="nc">.t</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nc">.red</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nc">.header</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c">/* Good example */</span><br data-jekyll-commonmark-ghpages><span class="nc">.tweet</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nc">.important</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nc">.tweet-header</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="css-selectors">
+    <div class="col">
+      <h3>Selectors <a href="#css-selectors"><i class="fa fa-link"></i></a></h3>
+      <ul>
+        <li>Use classes over generic element tag for optimum rendering performance.</li>
+        <li>Avoid using several attribute selectors (e.g., <code>[class^="..."]</code>) on commonly occuring components. Browser performance is known to be impacted by these.</li>
+        <li>Keep selectors short and strive to limit the number of elements in each selector to three.</li>
+        <li>Scope classes to the closest parent <strong>only</strong> when necessary (e.g., when not using prefixed classes).</li>
+      </ul>
+      <p>Additional reading:</p>
+      <ul>
+        <li><a href="http://markdotto.com/2012/02/16/scope-css-classes-with-prefixes/" target="_blank">Scope CSS classes with prefixes</a></li>
+        <li><a href="http://markdotto.com/2012/03/02/stop-the-cascade/" target="_blank">Stop the cascade</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* Bad example */</span><br data-jekyll-commonmark-ghpages><span class="nt">span</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nc">.page-container</span> <span class="nf">#stream</span> <span class="nc">.stream-item</span> <span class="nc">.tweet</span> <span class="nc">.tweet-header</span> <span class="nc">.username</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nc">.avatar</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c">/* Good example */</span><br data-jekyll-commonmark-ghpages><span class="nc">.avatar</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nc">.tweet-header</span> <span class="nc">.username</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nc">.tweet</span> <span class="nc">.avatar</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="css-organization">
+    <div class="col">
+      <h3>Organization <a href="#css-organization"><i class="fa fa-link"></i></a></h3>
+      <ul>
+        <li>Organize sections of code by component.</li>
+        <li>Develop a consistent commenting hierarchy.</li>
+        <li>Use consistent white space to your advantage when separating sections of code for scanning larger documents.</li>
+        <li>When using multiple CSS files, break them down by component instead of page. Pages can be rearranged and components moved.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/*<br data-jekyll-commonmark-ghpages> * Component section heading<br data-jekyll-commonmark-ghpages> */</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="nc">.element</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c">/*<br data-jekyll-commonmark-ghpages> * Component section heading<br data-jekyll-commonmark-ghpages> *<br data-jekyll-commonmark-ghpages> * Sometimes you need to include optional context for the entire component. Do that up here if it's important enough.<br data-jekyll-commonmark-ghpages> */</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="nc">.element</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c">/* Contextual sub-component or modifer */</span><br data-jekyll-commonmark-ghpages><span class="nc">.element-heading</span> <span class="p">{</span> <span class="err">...</span> <span class="p">}</span></code></pre></figure>
+    </div>
+  </div>
+
+
+
+  <div class="heading" id="js">
+    <h2>JavaScript <a href="#js"><i class="fa fa-link"></i></a></h2>
+  </div>
+
+  <div class="section" id="js-syntax">
+    <div class="col">
+      <h3>Syntax <a href="#js-syntax"><i class="fa fa-link"></i></a></h3>
+      <ul>
+        <li>Use hard tabs with four spaces.</li>
+        <li>Remove all trailing white space.</li>
+        <li>Always end you statements with a semicolon.</li>
+        <li>Your opening braces go on the same line as the statement.</li>
+        <li>Else opening should be on the same line as the if closing brace.</li>
+        <li>If statements can be single line if they have a single return.</li>
+        <li>Declare one variable per var statement, it makes it easier to re-order the lines. However, ignore <a href="http://javascript.crockford.com/code.html" target="_blank">Crockford</a> when it comes to declaring variables deeper inside a function, just put the declarations wherever they make sense.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Use 4 space hard tabs for indents</span><br data-jekyll-commonmark-ghpages><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="k">if</span> <span class="p">(</span><span class="nx">bar</span> <span class="o">===</span> <span class="nx">foo</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="cm">/* ... */</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Good example</span><br data-jekyll-commonmark-ghpages><span class="k">if</span> <span class="p">(</span><span class="nx">bar</span> <span class="o">===</span> <span class="nx">foo</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="cm">/* ... */</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// End your statements with a semicolon</span><br data-jekyll-commonmark-ghpages><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'I done goofed'</span><span class="p">)</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Good example</span><br data-jekyll-commonmark-ghpages><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Hello, world!'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Opening braces go on the same lines</span><br data-jekyll-commonmark-ghpages><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="k">if</span> <span class="p">(</span><span class="nx">bar</span> <span class="o">===</span> <span class="nx">foo</span><span class="p">)</span><br data-jekyll-commonmark-ghpages><span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="c1">// This is madness</span><br data-jekyll-commonmark-ghpages>    <span class="kd">var</span> <span class="nx">bat</span> <span class="o">=</span> <span class="nx">bar</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Good example</span><br data-jekyll-commonmark-ghpages><span class="k">if</span> <span class="p">(</span><span class="nx">bar</span> <span class="o">===</span> <span class="nx">foo</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="kd">var</span> <span class="nx">bat</span> <span class="o">=</span> <span class="nx">bar</span> <span class="o">+</span> <span class="nx">foo</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><span class="p">}</span> <span class="k">else</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="kd">var</span> <span class="nx">bin</span> <span class="o">=</span> <span class="nx">bar</span> <span class="o">*</span> <span class="nx">foo</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Declare one variable per statement</span><br data-jekyll-commonmark-ghpages><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">],</span><br data-jekyll-commonmark-ghpages>    <span class="nx">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">],</span><br data-jekyll-commonmark-ghpages>    <span class="nx">object</span> <span class="o">=</span> <span class="p">{},</span><br data-jekyll-commonmark-ghpages>    <span class="nx">key</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="k">while</span> <span class="p">(</span><span class="nx">keys</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nx">key</span> <span class="o">=</span> <span class="nx">keys</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span><br data-jekyll-commonmark-ghpages>    <span class="nx">object</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">values</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Good example</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">keys</span>   <span class="o">=</span> <span class="p">[</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">];</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">42</span><span class="p">];</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">object</span> <span class="o">=</span> <span class="p">{};</span><br data-jekyll-commonmark-ghpages><span class="k">while</span> <span class="p">(</span><span class="nx">keys</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="kd">var</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">keys</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span><br data-jekyll-commonmark-ghpages>    <span class="nx">object</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">values</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span><br data-jekyll-commonmark-ghpages><span class="p">}</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="js-naming-conventions">
+    <div class="col">
+      <h3>Naming Conventions <a href="#js-naming-conventions"><i class="fa fa-link"></i></a></h3>
+      <ul>
+        <li>Variables, properties and function names should use <code>lowerCamelCase</code>. They should also be descriptive. Single character variables and uncommon abbreviations should generally be avoided.</li>
+        <li>Class names should be capitalized using <code>UpperCamelCase</code>.</li>
+        <li>Constants should be declared as regular variables or static class properties, using all uppercase letters.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Variables, Properties and Function names</span><br data-jekyll-commonmark-ghpages><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">admin_user</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s1">'SELECT * FROM users ...'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Good example</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">adminUser</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="s1">'SELECT * FROM users ...'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Class names</span><br data-jekyll-commonmark-ghpages><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="kd">function</span> <span class="nx">bank_Account</span><span class="p">()</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Good example</span><br data-jekyll-commonmark-ghpages><span class="kd">function</span> <span class="nx">BankAccount</span><span class="p">()</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Constants</span><br data-jekyll-commonmark-ghpages><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="kd">const</span> <span class="nx">SECOND</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="kd">function</span> <span class="nx">File</span><span class="p">()</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nx">File</span><span class="p">.</span><span class="nx">fullPermissions</span> <span class="o">=</span> <span class="mi">0777</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Good example</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">SECOND</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="kd">function</span> <span class="nx">File</span><span class="p">()</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="nx">File</span><span class="p">.</span><span class="nx">FULL_PERMISSIONS</span> <span class="o">=</span> <span class="mi">0777</span><span class="p">;</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="js-variables">
+    <div class="col">
+      <h3>Variables <a href="#js-variables"><i class="fa fa-link"></i></a></h3>
+      <p>Put short declarations on a single line. Only quote keys when your interpreter complains.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><br data-jekyll-commonmark-ghpages>    <span class="s1">'hello'</span><span class="p">,</span> <span class="s1">'world'</span><br data-jekyll-commonmark-ghpages><span class="p">];</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"good"</span><span class="p">:</span> <span class="s1">'code'</span><br data-jekyll-commonmark-ghpages>        <span class="p">,</span> <span class="nx">is</span> <span class="na">generally</span><span class="p">:</span> <span class="s1">'pretty'</span><br data-jekyll-commonmark-ghpages>        <span class="p">};</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Good example</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'hello'</span><span class="p">,</span> <span class="s1">'world'</span><span class="p">];</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="na">good</span><span class="p">:</span> <span class="s1">'code'</span><span class="p">,</span><br data-jekyll-commonmark-ghpages>    <span class="s1">'is generally'</span><span class="p">:</span> <span class="s1">'pretty'</span><br data-jekyll-commonmark-ghpages><span class="p">};</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="js-conditionals">
+    <div class="col">
+      <h3>Conditionals <a href="#js-conditionals"><i class="fa fa-link"></i></a></h3>
+      <h4>Use the === operator</h4>
+      <p>Use the triple equality operator as it will work just as expected.</p>
+      <br>
+      <h4>Use descriptive conditions</h4>
+      <p>Any non-trivial conditions should be assigned to a descriptively named variable or function.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Use the === operator</span><br data-jekyll-commonmark-ghpages><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="s1">''</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'losing'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Good example</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">!==</span> <span class="s1">''</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'winning'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// User descriptive conditions</span><br data-jekyll-commonmark-ghpages><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="k">if</span> <span class="p">(</span><span class="nx">password</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;=</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="sr">/^</span><span class="se">(?=</span><span class="sr">.*</span><span class="se">\d)</span><span class="sr">.</span><span class="se">{4,}</span><span class="sr">$/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">password</span><span class="p">))</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'losing'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Good example</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">isValidPassword</span> <span class="o">=</span> <span class="nx">password</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;=</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="sr">/^</span><span class="se">(?=</span><span class="sr">.*</span><span class="se">\d)</span><span class="sr">.</span><span class="se">{4,}</span><span class="sr">$/</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">password</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="k">if</span> <span class="p">(</span><span class="nx">isValidPassword</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'winning'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><span class="p">}</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="js-functions">
+    <div class="col">
+      <h3>Functions <a href="#js-functions"><i class="fa fa-link"></i></a></h3>
+      <h4>Write small functions</h4>
+      <p>Keep your functions short. A good function fits on a slide that the people in the last row of a big room can comfortably read. So don't count on them having perfect vision and limit yourself to ~15 lines of code per function.</p>
+      <br>
+      <h4>Return early from functions</h4>
+      <p>To avoid deep nesting of if-statements, always return a function's value as early as possible.</p>
+      <br>
+      <br>
+      <h4>Limit nested closures</h4>
+      <p>There will always be times when you'll need to nest your closures, but limit the depth to ~3 deep otherwise your code can become unreadable and hard to maintain.</p>
+      <br>
+      <h4>Method chaining</h4>
+      <p>One method per line should be used if you want to chain methods.<p>
+      <p>You should also indent these methods so it's easier to tell they are part of the same chain.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Return early from functions</span><br data-jekyll-commonmark-ghpages><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="kd">function</span> <span class="nx">isPercentage</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="k">if</span> <span class="p">(</span><span class="nx">val</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>        <span class="k">if</span> <span class="p">(</span><span class="nx">val</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>        <span class="p">}</span><br data-jekyll-commonmark-ghpages>    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="p">}</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Better example</span><br data-jekyll-commonmark-ghpages><span class="kd">function</span> <span class="nx">isPercentage</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="k">if</span> <span class="p">(</span><span class="nx">val</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages>    <span class="k">if</span> <span class="p">(</span><span class="nx">val</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages>    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Even better example</span><br data-jekyll-commonmark-ghpages><span class="kd">function</span> <span class="nx">isPercentage</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="kd">var</span> <span class="nx">isInRange</span> <span class="o">=</span> <span class="p">(</span><span class="nx">val</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">val</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">);</span><br data-jekyll-commonmark-ghpages>    <span class="k">return</span> <span class="nx">isInRange</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Limit nested closures</span><br data-jekyll-commonmark-ghpages><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>        <span class="nx">widget</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'init'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>            <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'[data-widget-items]'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'losing'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages>            <span class="p">});</span><br data-jekyll-commonmark-ghpages>        <span class="p">});</span><br data-jekyll-commonmark-ghpages>    <span class="p">});</span><br data-jekyll-commonmark-ghpages><span class="p">},</span> <span class="mi">1000</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Better example</span><br data-jekyll-commonmark-ghpages><span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nx">client</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">initWidget</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><span class="p">},</span> <span class="mi">1000</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="kd">function</span> <span class="nx">initWidget</span><span class="p">()</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nx">widget</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'init'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>        <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'[data-widget-items]'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'winning'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages>        <span class="p">});</span><br data-jekyll-commonmark-ghpages>    <span class="p">});</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Method chaining</span><br data-jekyll-commonmark-ghpages><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="nx">User</span><br data-jekyll-commonmark-ghpages><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="s1">'foo'</span> <span class="p">})</span><br data-jekyll-commonmark-ghpages><span class="p">.</span><span class="nx">populate</span><span class="p">(</span><span class="s1">'bar'</span><span class="p">)</span><br data-jekyll-commonmark-ghpages><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><span class="p">});</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="s1">'foo'</span> <span class="p">})</span><br data-jekyll-commonmark-ghpages>    <span class="p">.</span><span class="nx">populate</span><span class="p">(</span><span class="s1">'bar'</span><span class="p">)</span><br data-jekyll-commonmark-ghpages>    <span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="p">});</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="s1">'foo'</span> <span class="p">}).</span><span class="nx">populate</span><span class="p">(</span><span class="s1">'bar'</span><span class="p">)</span><br data-jekyll-commonmark-ghpages><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><span class="p">});</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="s1">'foo'</span> <span class="p">}).</span><span class="nx">populate</span><span class="p">(</span><span class="s1">'bar'</span><span class="p">)</span><br data-jekyll-commonmark-ghpages>    <span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="p">});</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Good example</span><br data-jekyll-commonmark-ghpages><span class="nx">User</span><br data-jekyll-commonmark-ghpages>    <span class="p">.</span><span class="nx">findOne</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="s1">'foo'</span> <span class="p">})</span><br data-jekyll-commonmark-ghpages>    <span class="p">.</span><span class="nx">populate</span><span class="p">(</span><span class="s1">'bar'</span><span class="p">)</span><br data-jekyll-commonmark-ghpages>    <span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">user</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span><br data-jekyll-commonmark-ghpages>    <span class="p">});</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="js-comments">
+    <div class="col">
+      <h3>Comments <a href="#js-comments"><i class="fa fa-link"></i></a></h3>
+      <p>Try to write comments that explain higher level mechanisms or clarify difficult segments of your code. Don't use comments to restate trivial things.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="c1">// Execute a regex</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">matches</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/ID_</span><span class="se">([^\n]</span><span class="sr">+</span><span class="se">)</span><span class="sr">=</span><span class="se">([^\n]</span><span class="sr">+</span><span class="se">)</span><span class="sr">/</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Usage: loadUser(5, function() { ... })</span><br data-jekyll-commonmark-ghpages><span class="kd">function</span> <span class="nx">loadUser</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>	<span class="c1">// ...</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Check if the session is valid</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">isSessionValid</span> <span class="o">=</span> <span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">expires</span> <span class="o">&lt;</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">());</span><br data-jekyll-commonmark-ghpages><span class="c1">// If the session is valid</span><br data-jekyll-commonmark-ghpages><span class="k">if</span> <span class="p">(</span><span class="nx">isSessionValid</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="c1">// ...</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Good example</span><br data-jekyll-commonmark-ghpages><span class="c1">// 'ID_SOMETHING=VALUE' -&gt; ['ID_SOMETHING=VALUE', 'SOMETHING', 'VALUE']</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">matches</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/ID_</span><span class="se">([^\n]</span><span class="sr">+</span><span class="se">)</span><span class="sr">=</span><span class="se">([^\n]</span><span class="sr">+</span><span class="se">)</span><span class="sr">/</span><span class="p">));</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// This function has a nasty side effect where a failure to increment a</span><br data-jekyll-commonmark-ghpages><span class="c1">// redis counter used for statistics will cause an exception. This needs</span><br data-jekyll-commonmark-ghpages><span class="c1">// to be fixed in a later iteration.</span><br data-jekyll-commonmark-ghpages><span class="kd">function</span> <span class="nx">loadUser</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">cb</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="c1">// ...</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">isSessionValid</span> <span class="o">=</span> <span class="p">(</span><span class="nx">session</span><span class="p">.</span><span class="nx">expires</span> <span class="o">&lt;</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">());</span><br data-jekyll-commonmark-ghpages><span class="k">if</span> <span class="p">(</span><span class="nx">isSessionValid</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="c1">// ...</span><br data-jekyll-commonmark-ghpages><span class="p">}</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="js-misc">
+    <div class="col">
+      <h3>Miscellaneous <a href="#js-misc"><i class="fa fa-link"></i></a></h3>
+      <h4>Object.freeze, Object.preventExtensions, Object.seal, with, eval</h4>
+      <p>Crazy shit that you will probably never need. Stay away from it.</p>
+      <br>
+      <h4>Requires At Top</h4>
+      <p>Always put requires at top of file to clearly illustrate a file's dependencies. Besides giving an overview for others at a quick glance of dependencies and possible memory impact, it allows one to determine if they need a package.json file should they choose to use the file elsewhere.</p>
+      <br>
+      <h4>Do not extend built-in prototypes</h4>
+      <p>Do not extend the prototype of native JavaScript objects. Your future self will be forever grateful.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Do not extend built-in prototypes</span><br data-jekyll-commonmark-ghpages><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">empty</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="k">return</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[];</span><br data-jekyll-commonmark-ghpages><span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">empty</span><span class="p">())</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'losing'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><span class="p">}</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Good example</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[];</span><br data-jekyll-commonmark-ghpages><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">a</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'winning'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><span class="p">}</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="js-jquery-syntax">
+    <div class="col">
+      <h3>jQuery syntax <a href="#js-jquery-syntax"><i class="fa fa-link"></i></a></h3>
+      <p>Always define a root node for every widget based off of the <code></code>. This allows us to limit the size of the node tree when use functions like <code>.find()</code> which will improve performance. This will also help restrict any interactions, functions and listeners you define to the specific instance of the widget. Otherwise, other widgets or multiples of the same widget may trigger your code to run.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Bad example --&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"widget"</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"widget-inner hide"</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages>        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"title"</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/div&gt;</span><br data-jekyll-commonmark-ghpages>        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"description"</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages>            <span class="nt">&lt;p&gt;</span>This is a basic example.<span class="nt">&lt;/p&gt;</span><br data-jekyll-commonmark-ghpages>        <span class="nt">&lt;/div&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;/div&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"widget-button"</span><span class="nt">&gt;</span>Show<span class="nt">&lt;/button&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;/div&gt;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="nt">&lt;script&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nx">$</span><span class="p">(</span><span class="s1">'.widget-button'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>        <span class="nx">$</span><span class="p">(</span><span class="s1">'.widget-inner'</span><span class="p">).</span><span class="nx">toggleClass</span><span class="p">(</span><span class="s1">'hide'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages>    <span class="p">});</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;/script&gt;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c">&lt;!-- Good example --&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"widget"</span> <span class="na">data-widget=</span><span class="s">""</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"widget-inner hide"</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages>        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"title"</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/div&gt;</span><br data-jekyll-commonmark-ghpages>        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"description"</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages>            <span class="nt">&lt;p&gt;</span>This is a basic example.<span class="nt">&lt;/p&gt;</span><br data-jekyll-commonmark-ghpages>        <span class="nt">&lt;/div&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;/div&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"widget-button"</span> <span class="na">data-widget-toggle</span><span class="nt">&gt;</span>Show<span class="nt">&lt;/button&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;/div&gt;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="nt">&lt;script&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="kd">var</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'[data-widget=""]'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages>    <span class="nx">root</span><br data-jekyll-commonmark-ghpages>        <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'[data-widget-toggle]'</span><span class="p">)</span><br data-jekyll-commonmark-ghpages>        <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span><br data-jekyll-commonmark-ghpages>            <span class="nx">root</span><br data-jekyll-commonmark-ghpages>                <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.widget-inner'</span><span class="p">)</span><br data-jekyll-commonmark-ghpages>                <span class="p">.</span><span class="nx">toggleClass</span><span class="p">(</span><span class="s1">'hide'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages>        <span class="p">});</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;/script&gt;</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="js-selectors">
+    <div class="col">
+      <h3>Avoid using class or id selectors <a href="#js-selectors"><i class="fa fa-link"></i></a></h3>
+      <p>This helps keep a strict separation between structure and functionality. With this, an element can be completely restyled with an entire new set of classes and ids without any loss of functionality.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- Bad example --&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"item"</span> <span class="na">id=</span><span class="s">"item1"</span> <span class="na">data-item</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"description"</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/p&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;/div&gt;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="nt">&lt;script&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="kd">var</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.item#item1'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages>    <span class="nx">root</span><br data-jekyll-commonmark-ghpages>        <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.description'</span><span class="p">)</span><br data-jekyll-commonmark-ghpages>        <span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'subheader'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;/script&gt;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c">&lt;!-- Good example --&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"item"</span> <span class="na">id=</span><span class="s">"item1"</span> <span class="na">data-item=</span><span class="s">""</span><span class="nt">&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"description"</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/p&gt;</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;/div&gt;</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="nt">&lt;script&gt;</span><br data-jekyll-commonmark-ghpages>    <span class="kd">var</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'[data-item=""]'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages>    <span class="nx">root</span><br data-jekyll-commonmark-ghpages>        <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.description'</span><span class="p">)</span><br data-jekyll-commonmark-ghpages>        <span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'subheader'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><span class="nt">&lt;/script&gt;</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="js-cache-selectors">
+    <div class="col">
+      <h3>Cache your selectors <a href="#js-cache-selectors"><i class="fa fa-link"></i></a></h3>
+      <p>If you’re going to use a selector more than once, you should store it in a variable. Not only does it make the code easier to read, but it also improves performance since jQuery no longer has to traverse the DOM to find matching nodes.</p>
+    </div>
+    <div class="col">
+      <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Bad example</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'[data-widget=""]'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="nx">root</span><br data-jekyll-commonmark-ghpages>    <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.slider'</span><span class="p">)</span><br data-jekyll-commonmark-ghpages>    <span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'init'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/*...*/</span> <span class="p">});</span><br data-jekyll-commonmark-ghpages><span class="nx">root</span><br data-jekyll-commonmark-ghpages>    <span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.slider'</span><span class="p">)</span><br data-jekyll-commonmark-ghpages>    <span class="p">.</span><span class="nx">slick</span><span class="p">({</span> <span class="cm">/*...*/</span> <span class="p">});</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="c1">// Good example</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'[data-widget=""]'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><span class="kd">var</span> <span class="nx">slider</span> <span class="o">=</span> <span class="nx">root</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">'.slider'</span><span class="p">);</span><br data-jekyll-commonmark-ghpages><br data-jekyll-commonmark-ghpages><span class="nx">slider</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'init'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/*...*/</span> <span class="p">});</span><br data-jekyll-commonmark-ghpages><span class="nx">slider</span><span class="p">.</span><span class="nx">slick</span><span class="p">({</span> <span class="cm">/*...*/</span> <span class="p">});</span></code></pre></figure>
+    </div>
+  </div>
+
+  <div class="section" id="css-editor-prefs">
+    <div class="col">
+      <h3>Editor preferences</h3>
+      <p>Set your editor to the following settings to avoid common code inconsistencies and dirty diffs:</p>
+      <ul>
+        <li>Use hard-tabs set to four spaces.</li>
+        <li>Trim trailing white space on save.</li>
+        <li>Set encoding to UTF-8.</li>
+        <li>Add new line at end of files.</li>
+      </ul>
+      <p>Consider documenting and applying these preferences to your project's <code>.editorconfig</code> file. You can use <a href="https://github.com/arkmuntasser/code-guide/blob/gh-pages/.editorconfig">the one in this Code Guide</a>. Learn more <a href="http://editorconfig.org" target="_blank">about EditorConfig</a>. Get it for <a href="https://github.com/sindresorhus/editorconfig-sublime" target="_blank">Sublime Text</a> or <a href="https://atom.io/packages/editorconfig" target="_blank">Atom</a></p>
+    </div>
+  </div>
+
+  <footer class="footer">
+  <p><i class="fas fa-heart"></i></p>
+  <p>Heavily inspired by <a href="https://github.com/necolas/idiomatic-css">Idiomatic CSS</a>, the <a href="http://github.com/styleguide">GitHub Styleguide</a> and <a href="https://github.com/felixge/node-style-guide">Node.js Style Guide</a>. Forked from <a href="http://codeguide.co">Code Guide</a>: made with all the love in the world by <a href="https://twitter.com/mdo">@mdo</a>.<br>Updated and maintained by <a href="https://twitter.com/arkmuntasser">@arkmuntasser</a></p>
+  <p>Open sourced under MIT. Copyright 2018 <a href="https://twitter.com/arkmuntasser">@arkmuntasser</a>.</p>
+
+  <ul class="quick-links">
+    <li>
+      <iframe class="github-btn" src="https://ghbtns.com/github-btn.html?user=arkmuntasser&repo=code-guide&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="112px" height="20px"></iframe>
+    </li>
+    <li>
+      <iframe class="github-btn" src="https://ghbtns.com/github-btn.html?user=arkmuntasser&repo=code-guide&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="98px" height="20px"></iframe>
+    </li>
+  </ul>
+  <ul class="quick-links">
+    <li class="follow-btn">
+      <a href="https://twitter.com/arkmuntasser" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @arkmuntasser</a>
+    </li>
+    <li class="follow-btn">
+      <a href="https://twitter.com/mdo" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @mdo</a>
+    </li>
+    <li class="tweet-btn">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://localhost:4000" data-count="horizontal" data-via="arkmuntasser">Tweet</a>
+    </li>
+  </ul>
+</footer>
+
+</main>
+
+
+    <script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+<script>
+  var menuBtn = document.querySelector('header button');
+
+  menuBtn.addEventListener('click', toggleMenu);
+
+  function toggleMenu() {
+    document.querySelector('body').classList.toggle('menu-toggled');
+  }
+
+  var aside = document.querySelector('aside');
+
+  aside.addEventListener('click', checkAside);
+
+  function checkAside(e) {
+    if (e.target !== aside) { return; }
+
+    toggleMenu();
+  }
+</script>
+
+
+  </body>
+</html>
