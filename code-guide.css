@@ -2,36 +2,6 @@
 layout: nil
 ---
 
-/* Fonts */
-/* @font-face {
-  font-family: 'fontello';
-  src: url('fonts/fontello.eot');
-  src: url('fonts/fontello.eot#iefix') format('embedded-opentype'),
-       url('fonts/fontello.woff') format('woff'),
-       url('fonts/fontello.ttf') format('truetype'),
-       url('fonts/fontello.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-[class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: "fontello";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: .2em;
-  text-align: center;
-  font-variant: normal;
-  text-transform: none;
-}
-
-.icon-github-circled:before { content: '\e800'; }
-.icon-twitter:before { content: '\e801'; } */
-
-
 /* Scaffolding and type */
 * { box-sizing: border-box; }
 
@@ -361,22 +331,6 @@ nav ul {
 }
 
 .quick-links li { display: inline; }
-
-/* Footer */
-/*
-.footer {
-  padding: 3rem 1rem;
-  font-size: 90%;
-  text-align: center;
-}
-.footer p { margin-bottom: .5rem; }
-
-.quick-links {
-  list-style: none;
-  margin-left: 0;
-}
-.quick-links li { display: inline; } */
-
 
 /* Syntax highlighting */
 
