@@ -193,6 +193,7 @@ aside nav {
   box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
   background-color: #fafafa;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   transform: none;
   transition: transform .2s cubic-bezier(0, 0, 0.3, 1);
   pointer-events: all;
