@@ -57,8 +57,21 @@ layout: default
 
 <main>
   <header>
-    <button>Menu</button>
+    <button class="menu">
+      Menu
+    </button>
     <img src="logo-alt.svg"alt="Simpleview" /> Code Guide
+    <button class="settings">
+      <i class="fas fa-cog"></i>
+    </button>
+    <div class="settings-shade"></div>
+    <div class="settings-dropdown">
+      <ul>
+        <li>
+          <button class="night-mode"></button>
+        </li>
+      </ul>
+    </div>
   </header>
 
   {% include header.html %}

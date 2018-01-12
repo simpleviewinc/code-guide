@@ -2,6 +2,31 @@
 layout: nil
 ---
 
+:root {
+  --background: #fff;
+  --text-titles: #1a1a1a;
+  --text-content: #333;
+  --code: #f7f7f9;
+  --code-background: whitesmoke;
+  --code-border: #dfe1e8;
+  --border: #dedede;
+  --menu: #212121;
+  --sidebar: #fafafa;
+}
+
+body.night-mode {
+  --background: #212121;
+  --text: #fafafa;
+  --text-titles: #fafafa;
+  --text-content: #f1f1f1;
+  --code: #000;
+  --code-background: #101010;
+  --code-border: #000;
+  --border: #000;
+  --menu: #fff;
+  --sidebar: #1a1a1a;
+}
+
 /* Scaffolding and type */
 * { box-sizing: border-box; }
 
@@ -15,7 +40,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
   line-height: 1.5;
-  color: #333;
+  color: var(--text-content);
+  background-color: var(--background);
 }
 
 header {
@@ -29,8 +55,8 @@ header {
   padding: 0 1rem;
   width: 100%;
   height: 60px;
-  border-bottom: 1px solid #dedede;
-  background-color: #fff;
+  border-bottom: 1px solid var(--border);
+  background-color: var(--background);
   font-size: 1.25rem;
   font-weight: 800;
   transition: width .2s cubic-bezier(0, 0, 0.3, 1);
@@ -45,7 +71,86 @@ header {
 
 header img { margin-right: 0.25rem; }
 
-header button {
+header button.settings {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  font-size: 18px;
+  color: var(--text-content);
+  border: none;
+  background: transparent;
+}
+
+header .settings-shade {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+body.settings-open header .settings-shade {
+  pointer-events: all;
+}
+
+header .settings-dropdown {
+  position: absolute;
+  z-index: 100;
+  top: 10px;
+  right: 10px;
+  padding: 30px 15px;
+  width: 100%;
+  max-width: 200px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  background-color: var(--background);
+  border-radius: 6px;
+  transform-origin: top right;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.2s cubic-bezier(0,0,0.3,1) 0.2s, opacity 0.2s cubic-bezier(0,0,0.3,1) 0.2s;
+}
+
+body.settings-open header .settings-dropdown {
+  transform: scale(1);
+  opacity: 1;
+  transition: transform 0.2s cubic-bezier(0,0,0.3,1), opacity 0.2s cubic-bezier(0,0,0.3,1);
+}
+
+header .settings-dropdown ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0,0,0.3,1);
+}
+
+body.settings-open header .settings-dropdown ul {
+  opacity: 1;
+  transition: opacity 0.2s cubic-bezier(0,0,0.3,1) 0.2s;
+}
+
+header .settings-dropdown button {
+  font-size: 16px;
+  text-align: left;
+  color: var(--text-content);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+header .settings-dropdown button.night-mode::before {
+  content: "Turn on Night Mode";
+}
+
+body.night-mode header .settings-dropdown button.night-mode::before {
+  content: "Turn off Night Mode";
+}
+
+header button.menu {
   position: absolute;
   top: 0;
   left: 0;
@@ -55,15 +160,15 @@ header button {
   border: none;
   background: transparent
 }
-header button::before {
+header button.menu::before {
   content: "";
   position: absolute;
   top: 24px;
   left: 50%;
   width: 22px;
   height: 3px;
-  background-color: #212121;
-  box-shadow: 0 5px 0 #212121, 0 10px 0 #212121;
+  background-color: var(--menu);
+  box-shadow: 0 5px 0 var(--menu), 0 10px 0 var(--menu);
   transform: translateX(-50%);
 }
 
@@ -79,7 +184,7 @@ h1, h2, h3, h4 {
   margin: 0 0 .5rem;
   font-weight: normal;
   line-height: 1;
-  color: #1a1a1a;
+  color: var(--text-titles);
   letter-spacing: -.05em;
 }
 h1 { font-size: 3rem; }
@@ -138,7 +243,7 @@ code {
   padding: 2px 4px;
   font-size: 85%;
   color: #d44950;
-  background-color: #f7f7f9;
+  background-color: var(--code);
   border-radius: .2rem;
 }
 
@@ -189,9 +294,9 @@ aside nav {
   width: 100%;
   max-width: 280px;
   height: 100%;
-  border-right: 1px solid #dedede;
+  border-right: 1px solid var(--border);
   box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
-  background-color: #fafafa;
+  background-color: var(--sidebar);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   transform: none;
@@ -240,8 +345,8 @@ main {
 .col p { max-width: 40rem; }
 
 .col + .col {
-  border: 1px solid #dfe1e8;
-  background-color: whitesmoke;
+  border: 1px solid var(--code-border);
+  background-color: var(--code-background);
 }
 
 @media (min-width: 38em) {
@@ -258,7 +363,7 @@ main {
 .section-title {
   font-weight: 800;
   letter-spacing: 1px;
-  color: #333;
+  color: var(--text-titles);
 }
 
 .section-title a { color: inherit; }
