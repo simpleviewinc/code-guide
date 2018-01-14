@@ -2,16 +2,20 @@
 <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
 <script>
   var menuBtn = document.querySelector('header button.menu');
+  var aside = document.querySelector('aside');
+  var settingsBtn = document.querySelector('header button.settings');
+  var settingsShade = document.querySelector('header .settings-shade');
+  var nightModeBtn = document.querySelector('button.night-mode');
 
   menuBtn.addEventListener('click', toggleMenu);
+  aside.addEventListener('click', checkAside);
+  settingsBtn.addEventListener('click', toggleSettings);
+  settingsShade.addEventListener('click', toggleSettings);
+  nightModeBtn.addEventListener('click', toggleNightMode);
 
   function toggleMenu() {
     document.querySelector('body').classList.toggle('menu-toggled');
   }
-
-  var aside = document.querySelector('aside');
-
-  aside.addEventListener('click', checkAside);
 
   function checkAside(e) {
     if (e.target !== aside) { return; }
@@ -19,23 +23,17 @@
     toggleMenu();
   }
 
-  var settingsBtn = document.querySelector('header button.settings');
-
-  settingsBtn.addEventListener('click', toggleSettings);
-
   function toggleSettings() {
     document.querySelector('body').classList.toggle('settings-open');
   }
 
-  var settingsShade = document.querySelector('header .settings-shade');
-
-  settingsShade.addEventListener('click', toggleSettings);
-
-  var nightModeBtn = document.querySelector('button.night-mode');
-
-  nightModeBtn.addEventListener('click', toggleNightMode);
-
   function toggleNightMode() {
     document.querySelector('body').classList.toggle('night-mode');
+
+    if (document.querySelector('body').classList.contains('night-mode')) {
+      document.cookie = "theme=night-mode";
+    } else {
+      document.cookie = "theme=light-mode";
+    }
   }
 </script>
