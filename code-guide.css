@@ -169,21 +169,10 @@ header button.menu {
   width: 50px;
   height: 100%;
   font-size: 20px;
-  /* text-indent: -9999px; */
+  color: var(--text-content);
   border: none;
   background: transparent
 }
-/* header button.menu::before {
-  content: "";
-  position: absolute;
-  top: 24px;
-  left: 50%;
-  width: 22px;
-  height: 3px;
-  background-color: var(--menu);
-  box-shadow: 0 5px 0 var(--menu), 0 10px 0 var(--menu);
-  transform: translateX(-50%);
-} */
 
 a {
   color: #0088c6;
