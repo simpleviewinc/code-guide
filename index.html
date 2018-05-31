@@ -548,13 +548,14 @@ layout: default
       <p>Async/await gives us the capability to utilize a synchronous programming style, but make asynchronous calls. There are numerous advantages to this style of programming. It avoids the pyramid of doom. It largely eliminates the need for 3rd party flow control libraries, such as async, flowly, co, bluebird. When done properly, it also eliminates the need for Node's flawed domain package, more on this later.</p>
       <p>Basic Tips:</p>
       <ul>
-        <li>Tip 1: The return of <code>async</code> function is always a <code>Promise</code>, always. If the function text returns any non-Promise, it will be wrapped in a <code>Promise</code> for you.</li>
-        <li>Tip 2: An <code>async</code> function returns synchronously, it's promise returns asynchronously. This can be surprising at first. This means if you are not using await on the async function.</li>
-        <li>Tip 3: A thrown error in a async function, will be caught and wrapped as-if <code>Promise.reject(err)</code> was done.</li>
-        <li>Tip 4: While inside an async function, if you ever bounce off the event loop, which means executing async code of any kind whether a <code>setTimeout</code> or any other node-style error-first callback without utilizing await, you must Promise wrap it to avoid un-catchable errors.</li>
-        <li>Tip 5: <a href="https://nodejs.org/api/util.html#util_util_promisify_original">util.promisify()</a> is official and preferred method for promisifying functions within Node.</li>
-        <li>Tip 6: You can only utilize await within an async function.</li>
-        <li>Tip 7: If you utilize an <code>async</code> function within the <a href="https://caolan.github.io/async/docs.html">async library</a>, then it no longer recieves a cb and your function can simply return a result, or return a Promise. This behavior is not available in flowly, it assumes you will still cb the response.</li>
+        <li><em>Tip 1:</em> The return of an <code>async</code> function is always a <code>Promise</code>, always. If the function text returns any non-Promise, it will be wrapped in a <code>Promise</code> for you.</li>
+        <li><em>Tip 2:</em> An <code>async</code> function returns synchronously, it's promise returns asynchronously. This can be surprising at first. This occurs if you are not using <code>await</code> on the <code>async</code> function.</li>
+        <li><em>Tip 3:</em> A thrown error in a async function, will be caught and wrapped as-if <code>Promise.reject(err)</code> was done.</li>
+        <li><em>Tip 4:</em> While inside an async function, if you ever bounce off the event loop, which means executing async code of any kind whether a <code>setTimeout</code> or any other node-style error-first callback without utilizing await, you must Promise wrap it to avoid un-catchable errors.</li>
+        <li><em>Tip 5:</em> <a href="https://nodejs.org/api/util.html#util_util_promisify_original">util.promisify()</a> is official and preferred method for promisifying functions within Node.</li>
+        <li><em>Tip 6:</em> You can only utilize <code>await</code> within an <code>async</code> function.</li>
+        <li><em>Tip 7:</em> If you utilize an <code>async</code> function within the <a href="https://caolan.github.io/async/docs.html">async library</a>, then it no longer recieves a cb and your function can simply return a result, or return a Promise. This behavior is not available in flowly, it assumes you will still cb the response.</li>
+        <li><em>Tip 8:</em> A <code>Promise</code> begins execution the moment it is <code>new</code>'d. It does not wait until an <code>await</code> or <code>then</code> to execute. Sometimes this can cause surprising results.</li>
       </ul>
     </div>
     <div class="col">

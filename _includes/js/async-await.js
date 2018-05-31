@@ -46,7 +46,7 @@ try {
 var foo = async function() {
 	// bounces off the event loop
 	fs.readFile("/tmp/someFile.txt", function(err, result) {
-		if (err) { throw err; } // this won't be caught be our try catch, because our promise chain is lost by going off the event loop
+		if (err) { throw err; } // this is an uncatchable error and cannot be try/catch'd
 		
 		return resolve(result);
 	});
@@ -56,7 +56,7 @@ var foo = async function() {
 var foo = async function() {
 	return new Promise(function(resolve, reject) {
 		fs.readFile("/tmp/someFile.txt", function(err, result) {
-			if (err) { return reject(err); }
+			if (err) { return reject(err); } // this is catchable by our executer
 			
 			return resolve(result);
 		});
