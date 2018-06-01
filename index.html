@@ -51,6 +51,7 @@ layout: default
       <li><a href="#js-jquery-syntax">jQuery syntax</a></li>
       <li><a href="#js-selectors">Avoid using class or id selectors!</a></li>
       <li><a href="#js-cache-selectors">Cache your selectors</a></li>
+      <li><a href="#js-async-await">Async/Await Guidelines</a></li>
     </ul>
   </nav>
 </aside>
@@ -532,6 +533,33 @@ layout: default
     </div>
     <div class="col">
       {% highlight js %}{% include js/cache-selectors.js %}{% endhighlight %}
+    </div>
+  </div>
+  
+  <div class="section" id="js-async-await">
+    <div class="col">
+      <h3>Async/Await Guidelines <a href="#js-async-await"><i class="fa fa-link"></i></a></h3>
+      <p>In order to effectively use async/await, you need to understand Promises, callbacks, and async/await. The following are some good resources for the basics.</p>
+      <ul>
+        <li><a href="https://blog.hellojs.org/asynchronous-javascript-from-callback-hell-to-async-and-await-9b9ceb63c8e8">Callbacks to async/await</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">MDN Promises</a></li>
+        <li><a href="http://2ality.com/2016/10/async-function-tips.html">Async/Await Tips</a></li>
+      </ul>
+      <p>Async/Await gives us the capability to utilize a synchronous programming style, but make asynchronous calls. There are numerous advantages to this style of programming. It avoids the pyramid of doom. It largely eliminates the need for 3rd party flow control libraries, such as async, flowly, co, bluebird. When done properly, it also eliminates the need for Node's flawed domain package.</p>
+      <p>Basic Tips:</p>
+      <ul>
+        <li><b>Tip 1:</b> The return of an <code>async</code> function is always a <code>Promise</code>, always. If the function text returns any non-Promise, it will be wrapped in a <code>Promise</code> for you.</li>
+        <li><b>Tip 2:</b> An <code>async</code> function returns synchronously, it's <code>Promise</code> returns asynchronously. This occurs if you are not using <code>await</code> on the <code>async</code> function.</li>
+        <li><b>Tip 3:</b> A thrown error in a async function, will be caught and wrapped as-if <code>Promise.reject(err)</code> was performed.</li>
+        <li><b>Tip 4:</b> While inside an <code>async</code> function, if you ever bounce off the event loop, which means executing async code of any kind whether a <code>setTimeout</code> or any other node-style error-first callback without utilizing <code>await</code>, you must <code>Promise</code> wrap it to avoid un-catchable errors.</li>
+        <li><b>Tip 5:</b> <a href="https://nodejs.org/api/util.html#util_util_promisify_original">util.promisify()</a> is the preferred method for promisifying functions within Node since it's part of Node core.</li>
+        <li><b>Tip 6:</b> You can only utilize <code>await</code> within an <code>async</code> function.</li>
+        <li><b>Tip 7:</b> If you utilize an <code>async</code> function in conjunction with the <a href="https://caolan.github.io/async/docs.html">async library</a>, then it no longer recieves a cb and your function can simply return a result, or return a Promise. This behavior is not available in flowly, it assumes you will still cb the response.</li>
+        <li><b>Tip 8:</b> A <code>Promise</code> begins execution the moment it is <code>new</code>'d. It does not wait until an <code>await</code> or <code>then</code> to execute. Sometimes this can cause surprising results.</li>
+      </ul>
+    </div>
+    <div class="col">
+      {% highlight js %}{% include js/async-await.js %}{% endhighlight %}
     </div>
   </div>
 
